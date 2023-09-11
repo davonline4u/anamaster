@@ -1,5 +1,4 @@
 import express, { urlencoded } from "express"
-import mysql from "mysql"
 import cors from "cors"
 import userRoutes from "./routes/userRoutes.js"
 import { notfound, errorHandler } from "./middleware/errorMiddleware.js"
@@ -15,16 +14,6 @@ const PORT = 3000
 app.use(cors()) 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-
-
-const db2 = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "test",
-    
-
-})  
 
 app.use("/api/user", userRoutes)
 
